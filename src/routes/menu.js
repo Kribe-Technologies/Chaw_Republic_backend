@@ -1,6 +1,6 @@
 import express from 'express';
-import { createMenu, getMenu, getMenusByVendor, updateMenu, deleteMenu } from '../controllers/menu';
-import upload from '../utils/multer';
+import { createMenu, getMenu, getMenusByVendor, updateMenu, deleteMenu } from '../controllers/menu.js';
+import upload from '../utils/multer.js';
 
 const router = express.Router();
 
