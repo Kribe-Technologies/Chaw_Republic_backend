@@ -6,6 +6,7 @@ import cors from 'cors';
 import session from "express-session";
 import environment from './config/env.js';
 import { ErrorResponse } from "./utils/errorResponse.js";
+import { protect } from "./middlewares/index.js";
 import customerRoute from './routes/customer.js';
 import vendorRoute from './routes/vendor.js';
 import menuRoute from "./routes/menu.js";
@@ -29,6 +30,7 @@ app.get('/', asyncHandler(async (req, res) => {
 
 app.use('/api/v1/customer', customerRoute);
 app.use('/api/v1/vendor', vendorRoute);
+app.use(protect)
 app.use('/api/v1/menu', menuRoute);
 
 // Catch-all route for undefined routes
