@@ -5,9 +5,9 @@ import { ErrorResponse } from './errorResponse.js';
 const JWT_SECRET = environment.JWT_SECRET;
 const JWT_EXPIRES = environment.EXPIRY;
 
-
 if (!JWT_SECRET || !JWT_EXPIRES) {
-  throw new ErrorResponse("JWT Secret or Expiry is needed", 500)
+  throw new ErrorResponse("JWT secret or expiry time is required", 500);
+  
 }
 
 export const generateToken = async (email) => {

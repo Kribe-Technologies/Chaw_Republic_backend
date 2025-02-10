@@ -1,4 +1,4 @@
-import Menu from '../models/menu';
+import Menu from '../models/menu.js';
 export class MenuRepository {
     static async createMenu(data) {
         const menu = new Menu(data);

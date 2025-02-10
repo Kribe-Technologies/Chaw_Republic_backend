@@ -1,6 +1,5 @@
 import express from 'express';
 import { login, register, resendOTP, verifyOTP, forgetPassword, resetPassword } from '../controllers/vendor.js';
-import upload from '../utils/multer.js';
 
 const route = express.Router();
 

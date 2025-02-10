@@ -18,7 +18,6 @@ export class CustomerRepository {
       email: values.email,
       password: hash,
       phoneNumber: values.phoneNumber,
-      address: values.address,
       token: newToken,
       otp: otpHash,
       otpExpires: expiry

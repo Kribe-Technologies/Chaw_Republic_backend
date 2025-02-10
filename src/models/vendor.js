@@ -8,8 +8,7 @@ const vendorSchema = new Schema({
     required: true
   },
   phoneNumber: { type: String, unique: true, required: true },
-  address: { type: String, required: true },
-  businessType: { type: String, required: true },
+  businessAddress: { type: String, required: true },
   businessName: { type: String, unique: true, required: true },
   isVerified: { type: Boolean, default: false },
   token: { type: String, select: false },

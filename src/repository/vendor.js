@@ -6,12 +6,11 @@ import crypto from 'crypto';
 export class VendorRepository {
   static async createVendor(values) {
     const hash = values.password ? await hashPassword(values.password) : undefined;
+
+    const otp = Array(6).fill(0).map(() => Math.floor(Math.random() * 10)).join("");
   
-     // Generate a new OTP
-      const otp = Array(6).fill(0).map(() => Math.floor(Math.random() * 10)).join("");
-    
-      const hashedOTP = crypto.createHash("sha256").update(otp).digest("hex");
-      const expiry = new Date(Date.now() + 10 * 60 * 1000); // New expiration time: 10 minutes
+    const hashedOTP = crypto.createHash("sha256").update(otp).digest("hex");
+    const expiry = new Date(Date.now() + 10 * 60 * 1000); 
   
     const newToken = await generateToken(values.email);
   
@@ -23,9 +22,8 @@ export class VendorRepository {
       token: newToken,
       otp: hashedOTP,
       otpExpires: expiry,
-      address: values.address,
+      businessAddress: values.businessAddress,
       businessName: values.businessName,
-      businessType: values.businessType
     };
     const vendor = await new Vendor(vendorData).save();
     return { vendor, otp };
