@@ -1,9 +1,8 @@
-import { Request } from 'express';
-import { ICustomer } from '../models/customer';
-import asyncHandler from './async';
-import { ErrorResponse } from '../utils/errorResponse';
-import { IVendor } from '../models/vendor';
-import { verifyToken } from '../utils/jwt';
+import Customer from '../models/customer.js';
+import asyncHandler from './async.js';
+import { ErrorResponse } from '../utils/errorResponse.js';
+import Vendor from '../models/vendor.js';
+import { verifyToken } from '../utils/jwt.js';
 
 // Constants for authentication
 const AUTH_CONSTANTS = {
