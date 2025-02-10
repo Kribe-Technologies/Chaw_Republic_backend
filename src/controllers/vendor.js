@@ -31,9 +31,7 @@ export const register = asyncHandler(async (req, res, next) => {
 
   const sent = sendOTP(newVendor.otp, email);
 
-  console.log(newVendor.otp);
-
-  return AppResponse(res, 201, newVendor, "Vendor registered. Please verify OTP to complete registration.");
+  return AppResponse(res, 201, newVendor.vendor, "Vendor registered.");
 });
 
 export const login = asyncHandler(async (req, res, next) => {
